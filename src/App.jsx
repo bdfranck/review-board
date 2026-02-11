@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import './App.css'
 
 // Configuration
@@ -116,8 +116,11 @@ function getTextColorForBackground(hexColor) {
 
 // Card component
 function Card({ pr }) {
-  const createdDate = new Date(pr.created_at);
-  const daysAgo = Math.floor((Date.now() - createdDate) / (1000 * 60 * 60 * 24));
+  const daysAgo = useMemo(() => {
+    const createdDate = new Date(pr.created_at);
+    const now = new Date();
+    return Math.floor((now - createdDate) / (1000 * 60 * 60 * 24));
+  }, [pr.created_at]);
   
   return (
     <div className="card" onClick={() => window.open(pr.html_url, '_blank')}>
@@ -175,7 +178,7 @@ function App() {
   const [status, setStatus] = useState('Loading...');
   const [loading, setLoading] = useState(false);
 
-  const loadPullRequests = async () => {
+  const loadPullRequests = useCallback(async () => {
     setLoading(true);
     setStatus('Loading...');
     
@@ -275,11 +278,11 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     loadPullRequests();
-  }, []);
+  }, [loadPullRequests]);
 
   const unassignedPrs = pullRequests.filter(pr => !pr.hasReviewers);
 
