@@ -1,5 +1,7 @@
 const http = require('http');
 const https = require('https');
+const fs = require('fs');
+const path = require('path');
 
 const PORT = 8000;
 const GITHUB_API = 'https://api.github.com';
@@ -19,8 +21,6 @@ const server = http.createServer((req, res) => {
     
     // Serve static files
     if (req.url === '/' || req.url === '/index.html') {
-        const fs = require('fs');
-        const path = require('path');
         const filePath = path.join(__dirname, 'index.html');
         fs.readFile(filePath, (err, data) => {
             if (err) {
@@ -35,8 +35,6 @@ const server = http.createServer((req, res) => {
     }
     
     if (req.url === '/styles.css') {
-        const fs = require('fs');
-        const path = require('path');
         const filePath = path.join(__dirname, 'styles.css');
         fs.readFile(filePath, (err, data) => {
             if (err) {
@@ -51,8 +49,6 @@ const server = http.createServer((req, res) => {
     }
     
     if (req.url === '/app.js') {
-        const fs = require('fs');
-        const path = require('path');
         const filePath = path.join(__dirname, 'app.js');
         fs.readFile(filePath, (err, data) => {
             if (err) {

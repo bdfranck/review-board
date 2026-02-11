@@ -159,13 +159,7 @@ function createCard(pr) {
             labelEl.className = 'card-label';
             labelEl.textContent = label.name;
             labelEl.style.backgroundColor = `#${label.color}`;
-            // Calculate if we need dark or light text based on background color
-            const color = parseInt(label.color, 16);
-            const r = (color >> 16) & 255;
-            const g = (color >> 8) & 255;
-            const b = color & 255;
-            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            labelEl.style.color = brightness > 128 ? '#172b4d' : '#fff';
+            labelEl.style.color = getTextColorForBackground(label.color);
             labels.appendChild(labelEl);
         });
         card.appendChild(title);
