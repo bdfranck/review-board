@@ -1,6 +1,6 @@
 # PR Review Board
 
-A Trello-like board for tracking Pull Requests that need review.
+A Trello-like board for tracking Pull Requests that need review, built with **Vite + React**.
 
 ## Features
 
@@ -9,62 +9,92 @@ A Trello-like board for tracking Pull Requests that need review.
 - 👥 **Reviewer Columns**: Each team member gets their own column with assigned PRs
 - 🔄 **Real-time Updates**: Refresh button to fetch latest PR data
 - 🎨 **Beautiful UI**: Clean, modern interface inspired by Trello
+- ⚡ **Fast & Modern**: Built with Vite for blazing fast HMR (Hot Module Replacement)
 
-## Usage
+## Tech Stack
 
-### Demo Mode (Recommended for Quick Preview)
+- **Vite** - Next generation frontend tooling
+- **React 19** - Modern React with hooks
+- **Vanilla CSS** - No CSS framework needed for clean styling
+- **GitHub API** - Fetches PR data in real-time
 
-Open `demo.html` to see the board with sample data:
+## Getting Started
 
-```bash
-# Using Python 3
-python3 server.py
-```
-
-Then open http://localhost:8080/demo.html in your browser.
-
-### Live Mode with Real GitHub Data
-
-To connect to the actual GitHub API, use the included proxy server to avoid CORS issues:
+### Installation
 
 ```bash
-# Start the proxy server
-python3 server.py
+npm install
 ```
 
-Then open http://localhost:8080/index.html in your browser.
+### Development
 
-**Note:** The GitHub API has a rate limit of 60 requests per hour for unauthenticated requests. For production use, consider adding authentication (see Configuration section below).
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open http://localhost:5173 in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Configuration
+
+To change the repository being tracked, edit the `CONFIG` object in `src/App.jsx`:
+
+```javascript
+const CONFIG = {
+  owner: 'govalta',
+  repo: 'ui-components',
+  useMockData: true // Set to false to use real GitHub API
+};
+```
+
+**Note:** The GitHub API has a rate limit of 60 requests per hour for unauthenticated requests. For production use, consider adding authentication.
 
 ## How It Works
 
 The application:
-1. Fetches open, non-draft PRs from `govalta/ui-components` repository
+1. Fetches open, non-draft PRs from the configured GitHub repository
 2. Checks each PR for requested reviewers and submitted reviews
 3. Organizes PRs into columns:
    - **Needs Review**: PRs with no assigned reviewers
    - **[Reviewer Name]**: One column per reviewer with their assigned PRs
 
-## GitHub API
+## Development
 
-This app uses the GitHub REST API without authentication. The rate limit for unauthenticated requests is 60 requests per hour. For higher limits, you can add a personal access token (not included for security reasons).
+### Linting
 
-## Configuration
+```bash
+npm run lint
+```
 
-To use this for a different repository, edit the `CONFIG` object in `app.js`:
+### Project Structure
 
-```javascript
-const CONFIG = {
-    owner: 'your-org',
-    repo: 'your-repo',
-    apiBase: 'https://api.github.com'
-};
+```
+src/
+  ├── App.jsx        # Main application component with board logic
+  ├── App.css        # Trello-inspired styles
+  ├── main.jsx       # Application entry point
+  └── index.css      # Global styles
 ```
 
 ## Browser Compatibility
 
-Works in all modern browsers that support ES6+ features:
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
+Works in all modern browsers that support ES6+ and React 19:
+- Chrome 90+
+- Firefox 88+
+- Safari 15+
+- Edge 90+
