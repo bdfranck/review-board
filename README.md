@@ -57,7 +57,7 @@ To change the repositories being tracked, edit the `CONFIG` object in `src/App.j
 ```javascript
 const CONFIG = {
   repositories: [
-    { owner: 'govalta', repo: 'ui-components' },
+    { owner: 'GovAlta', repo: 'ui-components' },
     { owner: 'GovAlta', repo: 'design-tokens' }
   ],
   useMockData: true // Set to false to use real GitHub API
