@@ -52,12 +52,14 @@ npm run preview
 
 ## Configuration
 
-To change the repository being tracked, edit the `CONFIG` object in `src/App.jsx`:
+To change the repositories being tracked, edit the `CONFIG` object in `src/App.jsx`:
 
 ```javascript
 const CONFIG = {
-  owner: 'govalta',
-  repo: 'ui-components',
+  repositories: [
+    { owner: 'govalta', repo: 'ui-components' },
+    { owner: 'GovAlta', repo: 'design-tokens' }
+  ],
   useMockData: true // Set to false to use real GitHub API
 };
 ```
@@ -67,11 +69,12 @@ const CONFIG = {
 ## How It Works
 
 The application:
-1. Fetches open, non-draft PRs from the configured GitHub repository
+1. Fetches open, non-draft PRs from all configured GitHub repositories
 2. Checks each PR for requested reviewers and submitted reviews
 3. Organizes PRs into columns:
    - **Needs Review**: PRs with no assigned reviewers
    - **[Reviewer Name]**: One column per reviewer with their assigned PRs
+4. Displays repository information on each PR card for easy identification
 
 ## Development
 
