@@ -3,8 +3,10 @@ import './App.css'
 
 // Configuration
 const CONFIG = {
-  owner: 'govalta',
-  repo: 'ui-components',
+  repositories: [
+    { owner: 'GovAlta', repo: 'ui-components' },
+    { owner: 'GovAlta', repo: 'design-tokens' }
+  ],
   useMockData: true // Set to false to use real GitHub API
 };
 
@@ -14,7 +16,8 @@ const MOCK_DATA = [
     number: 123,
     title: "Add new navigation component",
     user: { login: "alice", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=alice" },
-    html_url: "https://github.com/govalta/ui-components/pull/123",
+    html_url: "https://github.com/GovAlta/ui-components/pull/123",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 5,
     labels: [{ name: "feature", color: "0e8a16" }],
@@ -26,7 +29,8 @@ const MOCK_DATA = [
     number: 124,
     title: "Fix button styling issues",
     user: { login: "charlie", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=charlie" },
-    html_url: "https://github.com/govalta/ui-components/pull/124",
+    html_url: "https://github.com/GovAlta/ui-components/pull/124",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 2,
     labels: [{ name: "bug", color: "d73a4a" }],
@@ -38,7 +42,8 @@ const MOCK_DATA = [
     number: 125,
     title: "Update documentation for card component",
     user: { login: "bob", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=bob" },
-    html_url: "https://github.com/govalta/ui-components/pull/125",
+    html_url: "https://github.com/GovAlta/ui-components/pull/125",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 1,
     labels: [{ name: "documentation", color: "0075ca" }],
@@ -50,7 +55,8 @@ const MOCK_DATA = [
     number: 126,
     title: "Refactor modal component for better accessibility",
     user: { login: "diana", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=diana" },
-    html_url: "https://github.com/govalta/ui-components/pull/126",
+    html_url: "https://github.com/GovAlta/ui-components/pull/126",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 8,
     labels: [
@@ -65,7 +71,8 @@ const MOCK_DATA = [
     number: 127,
     title: "Add dark mode support",
     user: { login: "eve", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=eve" },
-    html_url: "https://github.com/govalta/ui-components/pull/127",
+    html_url: "https://github.com/GovAlta/ui-components/pull/127",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 12,
     labels: [{ name: "feature", color: "0e8a16" }],
@@ -77,7 +84,8 @@ const MOCK_DATA = [
     number: 128,
     title: "Performance improvements for table component",
     user: { login: "alice", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=alice" },
-    html_url: "https://github.com/govalta/ui-components/pull/128",
+    html_url: "https://github.com/GovAlta/ui-components/pull/128",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 3,
     labels: [{ name: "performance", color: "fbca04" }],
@@ -89,11 +97,52 @@ const MOCK_DATA = [
     number: 129,
     title: "Add unit tests for tooltip component",
     user: { login: "bob", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=bob" },
-    html_url: "https://github.com/govalta/ui-components/pull/129",
+    html_url: "https://github.com/GovAlta/ui-components/pull/129",
+    repository: "GovAlta/ui-components",
     created_at: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
     comments: 0,
     labels: [{ name: "testing", color: "5319e7" }],
     requested_reviewers: [{ login: "alice" }],
+    requested_teams: [],
+    draft: false
+  },
+  // Design tokens repository PRs
+  {
+    number: 45,
+    title: "Update color palette for accessibility",
+    user: { login: "frank", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=frank" },
+    html_url: "https://github.com/GovAlta/design-tokens/pull/45",
+    repository: "GovAlta/design-tokens",
+    created_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+    comments: 3,
+    labels: [{ name: "accessibility", color: "7057ff" }],
+    requested_reviewers: [{ login: "alice" }],
+    requested_teams: [],
+    draft: false
+  },
+  {
+    number: 46,
+    title: "Add new spacing tokens",
+    user: { login: "grace", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=grace" },
+    html_url: "https://github.com/GovAlta/design-tokens/pull/46",
+    repository: "GovAlta/design-tokens",
+    created_at: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    comments: 1,
+    labels: [{ name: "enhancement", color: "a2eeef" }],
+    requested_reviewers: [],
+    requested_teams: [],
+    draft: false
+  },
+  {
+    number: 47,
+    title: "Fix typography token naming",
+    user: { login: "henry", avatar_url: "https://api.dicebear.com/7.x/avataaars/svg?seed=henry" },
+    html_url: "https://github.com/GovAlta/design-tokens/pull/47",
+    repository: "GovAlta/design-tokens",
+    created_at: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+    comments: 5,
+    labels: [{ name: "bug", color: "d73a4a" }],
+    requested_reviewers: [{ login: "bob" }, { login: "diana" }],
     requested_teams: [],
     draft: false
   }
@@ -124,7 +173,12 @@ function Card({ pr }) {
   
   return (
     <div className="card" onClick={() => window.open(pr.html_url, '_blank')}>
-      <div className="card-title">#{pr.number}: {pr.title}</div>
+      <div className="card-header">
+        <div className="card-title">#{pr.number}: {pr.title}</div>
+        {pr.repository && (
+          <div className="card-repo">{pr.repository}</div>
+        )}
+      </div>
       <div className="card-meta">
         <span className="card-meta-item">📅 {daysAgo}d ago</span>
         <span className="card-meta-item">💬 {pr.comments}</span>
@@ -218,20 +272,28 @@ function App() {
         setReviewers(Array.from(reviewerSet).sort());
         setStatus(`${processedPrs.length} PRs (Demo Mode)`);
       } else {
-        // Real API call
-        const response = await fetch(
-          `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/pulls?state=open&per_page=100`
-        );
+        // Fetch PRs from all configured repositories
+        const allPrsPromises = CONFIG.repositories.map(async ({ owner, repo }) => {
+          const response = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/pulls?state=open&per_page=100`
+          );
+          
+          if (!response.ok) {
+            throw new Error(`GitHub API error for ${owner}/${repo}: ${response.status}`);
+          }
+          
+          const prs = await response.json();
+          return prs.filter(pr => !pr.draft).map(pr => ({
+            ...pr,
+            repository: `${owner}/${repo}`
+          }));
+        });
         
-        if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status}`);
-        }
-        
-        const prs = await response.json();
-        const openPrs = prs.filter(pr => !pr.draft);
+        const allPrsArrays = await Promise.all(allPrsPromises);
+        const allPrs = allPrsArrays.flat();
         
         // Fetch reviews for each PR
-        const processedPrs = await Promise.all(openPrs.map(async (pr) => {
+        const processedPrs = await Promise.all(allPrs.map(async (pr) => {
           try {
             const reviewsResponse = await fetch(pr.reviews_url);
             const reviews = reviewsResponse.ok ? await reviewsResponse.json() : [];
